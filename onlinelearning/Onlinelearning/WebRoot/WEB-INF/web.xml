@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<!-- 
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.onlinelearning.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/jsp/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>SqlFilter</filter-name>
+		<filter-class>com.onlinelearning.filter.SqlFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SqlFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>XssFilter</filter-name>
+		<filter-class>com.onlinelearning.filter.XssFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>XssFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 
+	-->
+	
+	<!-- 添加struts2过滤器的配置文件 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<!-- 配置事务过滤器 -->
+	<!-- 
+	<filter>
+		<display-name>TransactionFilter</display-name>
+		<filter-name>TransactionFilter</filter-name>
+		<filter-class>com.onlinelearning.filter.TransactionFilter</filter-class>
+	</filter>
+	-->
+	<!-- 配置验证码 -->
+	
+	<servlet>
+		<servlet-name>kaptcha</servlet-name>
+		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SmartUploadServlet</servlet-name>
+    <servlet-class>com.onlinelearning.servlet.SmartUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PayMoneyServlet</servlet-name>
+    <servlet-class>com.onlinelearning.servlet.PayMoneyServlet</servlet-class>
+  </servlet>
+
+
+	
+	<servlet-mapping>
+		<servlet-name>kaptcha</servlet-name>
+		<url-pattern>/randomcode.jpg</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SmartUploadServlet</servlet-name>
+    <url-pattern>/SmartUploadServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PayMoneyServlet</servlet-name>
+    <url-pattern>/servlet/PayMoneyServlet</url-pattern>
+  </servlet-mapping>
+	
+	<!-- 
+	<filter-mapping>
+		<filter-name>TransactionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+		-->
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

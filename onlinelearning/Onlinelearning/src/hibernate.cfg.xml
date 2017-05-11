@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.connection.url">
+		jdbc:mysql://localhost:3306/onlinelearning?useUnicode=true&amp;characterEnconding=UTF-8
+	</property>
+	<property name="connection.username">root</property>
+    <property name="connection.password">root</property>
+
+	<!-- 是否打印sql语句 -->
+	<property name="show_sql">true</property>
+	<!-- 是否格式化输出 -->
+	<property name="format_sql">true</property>
+	<!-- 方言 -->
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<!-- 绑定当前线程 -->
+	<property name="current_session_context_class">thread</property>
+	<!-- 自动生成表结构 -->
+	<property name="hibernate.hbm2ddl.auto">update</property>
+	
+	<mapping resource="com/onlinelearning/entity/Student.hbm.xml" />
+	<mapping resource="com/onlinelearning/entity/Comments.hbm.xml" />
+	<mapping resource="com/onlinelearning/entity/Teacher.hbm.xml" />
+	<mapping resource="com/onlinelearning/entity/Video.hbm.xml" />
+
+
+
+</session-factory>
+</hibernate-configuration>

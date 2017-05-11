@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.onlinelearning.entity">
+	 <class name="Student" table="t_student">
+	 	<id name="id" column="id">
+	 		<generator class="native"></generator>
+	 	</id>
+	 	<property name="name" column="name"></property>
+	 	<property name="password" column="password"></property>
+	 	
+		<set name="videos" table="t_student_video" inverse="false" cascade="save-update" lazy="false">
+   			<key column="student_id"></key>
+   			<many-to-many class="Video" column="video_id"></many-to-many>
+    	</set>
+		
+		<!-- <set name="comments">
+			<key column="commentsid"></key>
+			<one-to-many class="Comments" />
+		</set> 	 -->
+	 	
+	 </class>  
+</hibernate-mapping>
+

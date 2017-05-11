@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="registerForm" namespace="/" extends="struts-default">
+		<action name="StudentRegisterAction_*" method="{1}" class="com.onlinelearning.action.StudentRegisterAction">
+			<result name="success">main.jsp</result>
+			<result name="error">studentRegister.jsp</result>	
+		</action>
+		
+		<action name="TeacherRegisterAction_*" method="{1}" class="com.onlinelearning.action.TeacherRegisterAction">
+			<result name="success">main.jsp</result>	
+			<result name="existname">teacherregister.jsp</result>
+		</action>
+	</package>
+	
+	<package name="loginForm" namespace="/" extends="struts-default">
+		<action name="login_*" method="{1}" class="com.onlinelearning.action.LoginAction">
+			<result name="success">index.jsp</result>
+			<!--<result name="student"></result>-->
+			<result name="error">index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="Info" namespace="/" extends="struts-default">
+		<action name="PersonalInfo" class="com.onlinelearning.action.DisplayPersonalInfo">
+			<result name="teacher">/jsp/teacher/teacher_info.jsp</result>
+			<result name="student">/jsp/student/student_info.jsp</result>
+			<result name="failure">login.jsp</result>
+		</action>
+		
+		<action name="TeacherInfo_*" class="com.onlinelearning.action.Information" method="{1}">
+			<result name="success" >/member/teacher/teacherinfo.jsp</result>
+			<result name="failure" >/member/teacher/teacherinfo.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="Course"  namespace="/" extends="struts-default">
+		<action name="Course_*" class="com.onlinelearning.action.CourseAction" method="{1}">
+			<result name="success">/course.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		<action name="getVideoInfo" class="com.onlinelearning.action.CourseInfo" method="VideoInfo">
+			<result name="success">course.jsp</result>
+		</action>
+	</package>
+	
+	
+	<package name="buycourse"  namespace="/" extends="struts-default">
+		<action name="Buy_course" class="com.onlinelearning.action.BuyCourseAction" method="execute">
+			<result name="success">/jsp/student/student_course.jsp</result>
+			<result name="nologin">/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="playvideo"  namespace="/" extends="struts-default">
+		<action name="Play_Video" class="com.onlinelearning.action.PlayVideo" method="execute">
+			<result name="success">/jsp/student/show_video.jsp</result>
+			<result name="failure">/jsp/student/student_course.jsp</result>
+		</action>
+	</package>
+	
+	<package name="publishcomment"  namespace="/" extends="struts-default">
+		<action name="Publish_Comment" class="com.onlinelearning.action.PublishCommentAction" method="execute">
+			<result name="success">/jsp/student/show_video.jsp</result>
+			<result name="failure">/jsp/student/student_course.jsp</result>
+		</action>
+	</package>
+	
+	<package name="search"  namespace="/" extends="struts-default">
+		<action name="Search_Video" class="com.onlinelearning.action.SearchAction" method="execute">
+			<result name="success">/searchresult.jsp</result>
+		</action>
+	</package>
+	
+	<package name="toMainJsp" namespace="/" extends="struts-default">
+	<action name="toMain" class="com.onlinelearning.action.ToMainJsp" method="toMain">
+		<result name="success">main.jsp</result>
+	</action>
+	</package>
+</struts>
+
